@@ -6,12 +6,12 @@ srcname=gnome-terminal
 conflicts=gnome-terminal
 provides=gnome-terminal
 pkgver=3.6.1
-pkgrel=1
+pkgrel=2
 pkgdesc="The GNOME Terminal Emulator, Darth edition."
 arch=('i686' 'x86_64')
 license=('GPL')
 depends=('gconf' 'vte3' 'gsettings-desktop-schemas' 'libsm')
-makedepends=('gnome-doc-utils' 'intltool' 'gtk2' 'itstool')
+makedepends=('gnome-doc-utils' 'intltool' 'gtk3' 'itstool')
 options=('!emptydirs')
 url="http://www.gnome.org"
 groups=('gnome')
@@ -21,7 +21,7 @@ source=(http://ftp.gnome.org/pub/gnome/sources/$srcname/${pkgver:0:3}/$srcname-$
         darth.patch)
 sha256sums=('c6816f77eaae791dadeef89596df811e2fa353088241aa0613bb8e1af63304f6'
             '90cb984aa758fe115c76cfd6e64d7b77e00731c1ad608720e1be4b5205ad5126'
-            '7334838f5b42253b583cc316918468e63af32c698d3d8c3a5ed9dd933440ad57')
+            'a2ce65a24e476424658b6d15a9ad34e66a73aaf7cfcfb0ed5df561e468f5d2e0')
 
 build() {
   cd "$srcname-$pkgver"

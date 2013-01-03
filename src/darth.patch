@@ -1,24 +1,28 @@
 diff --git a/src/terminal.c b/src/terminal.c
 --- a/src/terminal.c
 +++ b/src/terminal.c
-@@ -500,6 +500,8 @@
+@@ -500,6 +500,10 @@
    char *working_directory;
    int ret = EXIT_SUCCESS;
  
++#if GTK_CHECK_VERSION (3, 0, 0)
 +  GtkSettings *settings;
++#endif
 +
    setlocale (LC_ALL, "");
  
    bindtextdomain (GETTEXT_PACKAGE, TERM_LOCALEDIR);
-@@ -555,7 +553,12 @@
+@@ -555,7 +553,14 @@
    }
  
    g_set_application_name (_("Terminal"));
 +
++#if GTK_CHECK_VERSION (3, 0, 0)
 +  settings = gtk_settings_get_default ();
 +  g_object_set (G_OBJECT (settings),
 +                "gtk-application-prefer-dark-theme", TRUE,
 +                NULL);
++#endif
 +
 -  
    /* Unset the these env variables, so they doesn't end up
@@ -27,11 +31,14 @@ diff --git a/src/terminal.c b/src/terminal.c
 diff --git a/src/terminal-window.c b/src/terminal-window.c
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -2008,6 +2008,7 @@
+@@ -2008,6 +2008,10 @@
  #endif
  
    gtk_window_set_title (GTK_WINDOW (window), _("Terminal"));
++
++#if GTK_CHECK_VERSION (3, 4, 0)
 +  gtk_window_set_hide_titlebar_when_maximized (GTK_WINDOW (window), TRUE);
++#endif
  
    priv->active_screen = NULL;
    priv->menubar_visible = FALSE;
