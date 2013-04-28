@@ -18,10 +18,6 @@ Based on [gnome-terminal-dark](https://aur.archlinux.org/packages/gnome-terminal
 
 ## Screenshot
 
-![Screenshot](gnome-terminal-darth-edition/raw/master/screenshots/screenshot-maximized.png)
+![Screenshot](https://raw.github.com/seleznev/gnome-terminal-darth-edition/master/screenshots/screenshot-1.png)
 
-![Screenshot](gnome-terminal-darth-edition/raw/master/screenshots/screenshot-maximized-tabs.png)
-
-![Screenshot](gnome-terminal-darth-edition/raw/master/screenshots/screenshot-normal.png)
-
-![Screenshot](gnome-terminal-darth-edition/raw/master/screenshots/screenshot-normal-tabs.png)
+![Screenshot](https://raw.github.com/seleznev/gnome-terminal-darth-edition/master/screenshots/screenshot-2.png)
