@@ -1,20 +1,20 @@
 %define gettext_package gnome-terminal
 
-%define glib2_version 2.33.0
+%define glib2_version 2.33.2
 %define gtk3_version 3.6.0
-%define vte_version 0.34.0
+%define vte_version 0.34.6
 %define desktop_file_utils_version 0.2.90
 
 Summary: Terminal emulator for GNOME, Darth edition
 Name: gnome-terminal-darth-edition
-Version: 3.8.2
+Version: 3.8.4
 Release: 1%{?dist}
 License: GPLv3+ and GFDL
 Group: User Interface/Desktops
 URL: http://www.gnome.org/
 #VCS: git:git://git.gnome.org/gnome-terminal
 Source0: http://download.gnome.org/sources/gnome-terminal/3.8/gnome-terminal-%{version}.tar.xz
-Patch: gnome-terminal-3.8.2-darth-edition.patch
+Patch: gnome-terminal-%{version}-darth-edition.patch
 
 BuildRequires: glib2-devel >= %{glib2_version}
 BuildRequires: GConf2-devel
@@ -31,6 +31,7 @@ BuildRequires: dconf-devel
 BuildRequires: libuuid-devel
 
 Requires: gsettings-desktop-schemas
+Requires: vte3%{?_isa} >= %{vte_version}
 
 Conflicts: gnome-terminal
 Obsoletes: gnome-terminal
@@ -52,13 +53,10 @@ make %{?_smp_mflags}
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
 
-desktop-file-install --vendor gnome --delete-original	\
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications		\
-  --remove-category=Application				\
-  --add-category=System					\
-  $RPM_BUILD_ROOT%{_datadir}/applications/gnome-terminal.desktop
-
 %find_lang %{gettext_package} --with-gnome
+
+%check
+desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/gnome-terminal.desktop
 
 %postun
 if [ $1 -eq 0 ] ; then
@@ -79,5 +77,8 @@ fi
 %{_datadir}/glib-2.0/schemas/org.gnome.Terminal.gschema.xml
 
 %changelog
+* Mon Aug 5 2013 Alexander Seleznev <SeleznevRU@gmail.com> - 3.8.4-1
+- Update to 3.8.4
+
 * Sun Jul 7 2013 Alexander Seleznev <SeleznevRU@gmail.com> - 3.8.2-1
 - Update to 3.8.2

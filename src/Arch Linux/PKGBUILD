@@ -5,7 +5,7 @@ pkgname=gnome-terminal-darth-edition
 srcname=gnome-terminal
 conflicts=gnome-terminal
 provides=gnome-terminal
-pkgver=3.8.2
+pkgver=3.8.4
 pkgrel=1
 pkgdesc="The GNOME Terminal Emulator, Darth edition."
 arch=(i686 x86_64)
@@ -20,7 +20,7 @@ install=gnome-terminal.install
 source=(http://ftp.gnome.org/pub/gnome/sources/$srcname/${pkgver:0:3}/$srcname-$pkgver.tar.xz
         gnome-terminal.install
         gnome-terminal-$pkgver-darth-edition.patch)
-sha256sums=('c49afab26973225f41ed35a9d5b5180d6207757e524056656146b30692f39fff'
+sha256sums=('5c1a1db9b4c5eb5780137bed5ed6a05afd82053bd5b2ad41180d4617c56a3f22'
             '5dff7df9d64ddfa95752ddcbda6bc6c63a5897a403b16d1a571310c612af3ae8'
             'a152f866ad8f520306d9dadb3db69168d443037f4607f18f35b9b0eded8d1992')
 
